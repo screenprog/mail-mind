@@ -11,7 +11,5 @@ app = FastAPI()
 
 @app.post(ENDPOINT_NAME)
 async def root():
-    # main()
-    print("Got request")
-    time.sleep(20)
-    print("Hello guys")
+    print("application started")
+    main()
