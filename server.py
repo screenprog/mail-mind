@@ -13,3 +13,4 @@ app = FastAPI()
 async def root():
     print("application started")
     main()
+    print("application ended")
