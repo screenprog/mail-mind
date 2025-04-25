@@ -1,6 +1,5 @@
 import os
 import smtplib
-import json
 import time
 from datetime import datetime
 from email.mime.text import MIMEText
@@ -170,19 +169,3 @@ if __name__ == "__main__":
             time.sleep(7200) # Two hours
     except httpx.ConnectError:
         print("failed to connect the internet.")
-    finally:
-        if chat_messages.__len__() % 2 != 0:
-            chat_messages = chat_messages[:-1]
-        storing_format = []
-        for i in range(0, len(chat_messages)):
-            if chat_messages[i].role == "user":
-                storing_format.append({"user": chat_messages[i].parts[0].text})
-            elif chat_messages[i].role == "model":
-                if chat_messages[i].parts[0].text is not None:
-                    storing_format.append({"model": chat_messages[i].parts[0].text})
-                if chat_messages[i].parts[0].function_call is not None:
-                    storing_format.append({"function": {"name": chat_messages[i].parts[0].function_call.name, "args": chat_messages[i].parts[0].function_call.args}})
-            else:
-                storing_format.append({"function_response": {"name": chat_messages[i].parts[0].function_response.name, "response": chat_messages[i].parts[0].function_response.response}})
-        with open("./chat_history.json", "w") as writer:
-            writer.write(json.dumps(storing_format, indent=4))
