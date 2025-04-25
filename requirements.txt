@@ -1,0 +1,6 @@
+google-genai
+pytz
+json
+pymongo
+python-dotenv
+httpx
