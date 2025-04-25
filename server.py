@@ -1,6 +1,5 @@
 import os
-import time
-
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from fastapi import FastAPI
 
 from main import main
@@ -12,5 +11,6 @@ app = FastAPI()
 @app.post(ENDPOINT_NAME)
 async def root():
     print("application started")
-    main()
+    executor = ThreadPoolExecutor(max_workers=1)
+    executor.submit(main)
     print("application ended")
