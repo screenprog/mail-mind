@@ -8,9 +8,10 @@ ENDPOINT_NAME = os.getenv("ENDPOINT_NAME")
 app = FastAPI()
 
 
-@app.post(ENDPOINT_NAME)
+@app.get(ENDPOINT_NAME)
 async def root():
     print("application started")
     executor = ThreadPoolExecutor(max_workers=1)
     executor.submit(main)
     print("application ended")
+    return {"message": "Working"}
