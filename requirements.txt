@@ -3,3 +3,5 @@ pytz
 pymongo
 python-dotenv
 httpx
+fastapi
+fastapi[standard]

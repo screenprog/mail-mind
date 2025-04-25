@@ -132,7 +132,7 @@ def set_chat_history(message: dict):
     collection.insert_one(message)
     client.close()
 
-if __name__ == "__main__":
+def main():
     chat_messages = get_chat_history()
     print("acquired the data.")
     try:
@@ -166,6 +166,7 @@ if __name__ == "__main__":
                     set_chat_history({"model": response.text, "time": datetime.now(tz)})
 
                 print("responded to function")
+            #talk_or_inform()
             time.sleep(7200) # Two hours
     except httpx.ConnectError:
         print("failed to connect the internet.")
