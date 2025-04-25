@@ -8,7 +8,7 @@ ENDPOINT_NAME = os.getenv("ENDPOINT_NAME")
 app = FastAPI()
 
 
-@app.get(ENDPOINT_NAME)
+@app.head(ENDPOINT_NAME)
 async def root():
     print("application started")
     executor = ThreadPoolExecutor(max_workers=1)
