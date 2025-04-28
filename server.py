@@ -7,7 +7,7 @@ ENDPOINT_NAME = os.getenv("ENDPOINT_NAME")
 
 app = FastAPI()
 
-@app.head("ping")
+@app.head("/ping")
 def head():
     return {"message": "running"}
 
