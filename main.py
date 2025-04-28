@@ -167,6 +167,6 @@ def main():
 
                 print("responded to function")
             #talk_or_inform()
-            # time.sleep(7200) # Two hours
+            time.sleep(7200) # Two hours
     except httpx.ConnectError:
         print("failed to connect the internet.")

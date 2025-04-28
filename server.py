@@ -7,9 +7,13 @@ ENDPOINT_NAME = os.getenv("ENDPOINT_NAME")
 
 app = FastAPI()
 
+@app.head("ping")
+def head():
+    return {"message": "running"}
 
-@app.head(ENDPOINT_NAME)
-async def root():
+
+@app.post(ENDPOINT_NAME)
+def root():
     print("application started")
     executor = ThreadPoolExecutor(max_workers=1)
     executor.submit(main)
