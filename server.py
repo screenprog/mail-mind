@@ -12,7 +12,7 @@ def head():
     return {"message": "running"}
 
 
-@app.post(ENDPOINT_NAME)
+@app.head(ENDPOINT_NAME)
 def root():
     print("application started")
     executor = ThreadPoolExecutor(max_workers=1)
