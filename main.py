@@ -131,7 +131,7 @@ def set_chat_history(message: dict):
     client.close()
 
 
-if __name__ == "__main__":
+def main():
     chat_messages = get_chat_history()
     print("acquired the data.")
     try:
